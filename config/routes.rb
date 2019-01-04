@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
-  get 'home/show'
-
   get 'signin', to: redirect('/auth/google_oauth2'), as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
@@ -12,9 +10,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
 
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
 
-  root to: "home#show"
+  root to: "pets#index"
 
   resources :pets
 
