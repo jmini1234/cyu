@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 
   resources :pets
 
+  
+  resources :pets, except: [:show] do
+    post "/like", to: "mypage#like_toggle"
+ end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

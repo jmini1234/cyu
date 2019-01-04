@@ -72,4 +72,18 @@ class PetsController < ApplicationController
     def pet_params
       params.require(:pet).permit(:name, :description, :image)
     end
+
+    def like
+      @likes = Like.where("user_id = ?", current_user.id)
+    end
+  
+    def like_toggle
+      bookmark = Like.find_by(user_id: current_user.id, pet_id: params[:pet_id])
+       if bookmark.nil?
+          Like.create(user_id: current_user.id, pet_id: params[:pet_id])
+         else
+           bookmark.destroy
+         end
+         redirect_to :back
+      end
 end
