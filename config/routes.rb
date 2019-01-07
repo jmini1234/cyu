@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   
   resources :pets, except: [:show] do
-    post "/like", to: "mypage#like_toggle"
+    post "/like", to: "pets#like_toggle"
  end
 
 

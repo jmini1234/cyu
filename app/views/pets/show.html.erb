@@ -17,9 +17,9 @@
 
 <%= link_to 'Edit', edit_pet_path(@pet) %>
 <%= link_to 'Back', pets_path %>
-<!--
+
 <% if current_user.is_Like?(@pet) %>
-<%= link_to 'Like_yes', pets_like_path(@pet) %>
+<%= link_to 'Like_yes', pet_like_path(@pet) %>
 <% else %>
-<%= link_to 'Like_no', pets_like_path(@pet) %>
--->
+<%= link_to 'Like_no', pet_like_path(@pet) %>
+<% end %>
