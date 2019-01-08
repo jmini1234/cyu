@@ -62,6 +62,34 @@ class PetsController < ApplicationController
     end
   end
 
+  def like
+    @likes = Like.where("user_id = ?", current_user.id)
+  end
+
+  def like_toggle
+    bookmark = Like.find_by(user_id: current_user.id, pet_id: params[:pet_id])
+     if bookmark.nil?
+        Like.create(user_id: current_user.id, pet_id: params[:pet_id])
+       else
+        bookmark.destroy
+       end
+       redirect_to :back
+    end
+    
+  def report
+    @reports = Report.where("user_id = ?", current_user.id)
+  end
+
+  def report_toggle
+    flag = Report.find_by(user_id: current_user.id, pet_id: params[:pet_id])
+     if flag.nil?
+        Report.create(user_id: current_user.id, pet_id: params[:pet_id])
+       else
+        flag.destroy
+       end
+       redirect_to :back
+    end
+    
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
@@ -72,18 +100,4 @@ class PetsController < ApplicationController
     def pet_params
       params.require(:pet).permit(:name, :description, :image)
     end
-
-    def like
-      @likes = Like.where("user_id = ?", current_user.id)
-    end
-  
-    def like_toggle
-      bookmark = Like.find_by(user_id: current_user.id, pet_id: params[:pet_id])
-       if bookmark.nil?
-          Like.create(user_id: current_user.id, pet_id: params[:pet_id])
-         else
-           bookmark.destroy
-         end
-         redirect_to :back
-      end
 end

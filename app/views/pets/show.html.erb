@@ -19,7 +19,13 @@
 <%= link_to 'Back', pets_path %>
 
 <% if current_user.is_Like?(@pet) %>
-<%= link_to 'Like_yes', pet_like_path(@pet) %>
+<%= link_to 'Like_yes', pet_like_path(@pet), method: "post" %>
 <% else %>
-<%= link_to 'Like_no', pet_like_path(@pet) %>
+<%= link_to 'Like_no', pet_like_path(@pet), method: "post" %>
+<% end %>
+
+<% if current_user.is_Report?(@pet) %>
+<%= link_to 'Report_yes', pet_report_path(@pet), method: "post" %>
+<% else %>
+<%= link_to 'Report_no', pet_report_path(@pet), method: "post" %>
 <% end %>
