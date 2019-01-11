@@ -1,0 +1,45 @@
+.masonry {
+  background-color: #415E8C;
+  margin: 0 auto;
+  display: flex;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  padding: 2% 1% 1% 1%;
+  text-align: center;
+}
+
+.login-container {
+  width: 100%;
+}
+.login-form input {
+  align-items: center;
+  width: 100%;
+  border: none;
+  padding: 5px;
+  height: 40px;
+  margin-bottom: 20px;
+  outline: none;
+  font-family: 'Major Mono Display', monospace;
+
+}
+
+
+
+.login-form .login {
+  height: 40px;
+  border: 2px solid #D97B59;
+  background-color: #D97B59;
+  font-family: 'Major Mono Display', monospace;
+  cursor: pointer;
+  width: 100%;
+}
+
+.login:hover {
+  border-color:  #d49c87;
+}
+.login-form .login:hover {
+  cursor: pointer;
+}
