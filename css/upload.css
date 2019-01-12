@@ -1,0 +1,45 @@
+.upload {
+  overflow: hidden;
+  margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    display: none;
+}
+
+.file-preview {
+  background-color: #ccc;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-right: 1em;
+  float: left;
+  margin-right: 1em;
+  text-align: center;
+
+}
+
+.inputFile {
+margin-bottom: 2em;
+margin-top: 1em;
+}
+
+.container {
+  text-align: center;
+}
+
+.submitFile {
+  width: 100%;
+  margin-top: 1em;
+  background-color: #D97B59;
+  border: none;
+  padding: 0.5em 0 0.5em 0;
+  cursor: pointer;
+  font-family: Happy Monkey;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+.submitFile:hover {
+  border: 2px solid  #f1c0af;
+}

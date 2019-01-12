@@ -1,0 +1,170 @@
+<html>
+<!--
+//기능: 날짜, 좋아요, 삭제(신고)
+//필요 페이지: 메인페이지, 사진보여주는페이지, 글작성페이지, 로그인페이지 (4)
+-->
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Happy+Monkey|Major+Mono+Display" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/upload.css" />
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+  <body id="body">
+    <div class="container" id="container">
+
+
+
+<!-- HEADING -->
+      <div class="heading">
+        <img src="img/logo.png" id="logo" />
+        <hr />
+        <ul class="flex-container">
+          <li class="flex-item">
+            <a href="index.html" class="selected">home</a>
+          </li>
+          <li class="flex-item">
+            <a href="#" class="btn_toggle"> upload </a>
+          </li>
+          <li class="flex-item">
+            <a href="#">about</a>
+          </li>
+          <li class="flex-item">
+            <a href="login.html" id="login">login</a>
+          </li>
+        </ul>
+        <hr />
+      </div>
+
+
+
+<!-- IMAGE UPLOAD -->
+      <form action="/" class="upload" id="upload">
+        <div class="file-preview"></div>
+        <input type="file" name="file" class="inputfile"/><br />
+        <input type="submit" name = "file" class="submitFile" value="UPLOAD IMAGE" />
+      </form>
+
+      <!-- IMAGE UPLOAD JQUERY -->
+      <script>
+      $(function() {
+        $(".btn_toggle").on("click", function() {
+          $(".upload").slideToggle("slow");
+
+        })
+      })
+      </script>
+
+
+
+<!-- IMAGE MANSONRY -->
+      <div class="masonry">
+
+        <div class="item1">
+          <img src="img/cat17.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+
+        <div class="item1">
+          <img src="img/cat17.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+
+        <div class="item1">
+          <img src="img/cat16.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat17.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat3.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat6.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat7.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat15.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat5.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat9.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+        <div class="item1">
+          <img src="img/cat11.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+          <div class="item1">
+          <img src="img/cat12.jpg">
+          <div class="img-caption1 bottom-top1">
+            <p> date: </p>
+            <button> dislike </button>
+            <button> like </button>
+          </div>
+        </div>
+      </div>
+
+<!-- JS -->
+      <script type="text/javascript" src="js/script.js"></script>
+      <script type="text/jacascript" src="js/upload.js"></script>
+
+
+    </div>
+  </body>
+</html>
