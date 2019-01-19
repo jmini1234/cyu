@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="/assets/style.css" />
   <link rel="stylesheet" href="/assets/upload.css" />
   <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript" src="/assets/script.js"></script>
+
 </head>
   <body id="body">
     <div class="container" id="container">
@@ -43,25 +45,22 @@
       </form>
 
       <!-- IMAGE UPLOAD JQUERY -->
-      <script>
+<!--       <script>
       $(function() {
         $(".btn_toggle").on("click", function() {
           $(".upload").slideToggle("slow");
 
         })
       })
-      </script>
+      </script> -->
 
 
 
 <!-- IMAGE MANSONRY -->
       <div class="masonry">
-
-        <div class="item1">
         <% @pets.each do |pet| %>
-          <button class="show" onclick="location.href='/pets/<%= pet.id %>'">
+        <div class="item1">
             <%= image_tag (pet.image) %>
-          </button>
           <div class="img-caption1 bottom-top1">
             <% if current_user.is_Like?(pet) %>
               <%= link_to 'Dislike', pet_like_path(pet), method: "post" %>
@@ -74,10 +73,10 @@
               <% else %>
               <%= link_to 'Report', pet_report_path(pet), method: "post" %>
             <% end %>
+            <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
-          <% end %>
         </div>
-        
+      <% end %>
       </div>
 
 <!-- JS -->
