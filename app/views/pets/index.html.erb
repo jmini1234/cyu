@@ -1,32 +1,90 @@
-<p id="notice"><%= notice %></p>
+<html>
+<!--
+//기능: 날짜, 좋아요, 삭제(신고)
+//필요 페이지: 메인페이지, 사진보여주는페이지, 글작성페이지, 로그인페이지 (4)
+-->
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Happy+Monkey|Major+Mono+Display" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="/assets/upload.css" />
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+  <body id="body">
+    <div class="container" id="container">
 
-<h1>Listing Pets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @pets.each do |pet| %>
-      <tr>
-        <td><%= pet.name %></td>
-        <td><%= pet.description %></td>
-        <td><%= image_tag pet.image.thumb.url %></td>
+<!-- HEADING -->
+      <div class="heading">
+        <%= image_tag ("logo.png"), id: "logo" %>
+        <hr />
+        <ul class="flex-container">
+          <li class="flex-item">
+            <a href="/" class="selected">home</a>
+          </li>
+          <li class="flex-item">
+            <a href="/pets/new" class="btn_toggle"> upload </a>
+          </li>
+          <li class="flex-item">
+            <a href="/signin" id="login">login</a>
+          </li>
+        </ul>
+        <hr />
+      </div>
 
-        <td><%= link_to 'Show', pet %></td>
-        <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-        <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Pet', new_pet_path %>
+<!-- IMAGE UPLOAD -->
+      <form action="/" class="upload" id="upload">
+        <div class="file-preview"></div>
+        <input type="file" name="file" class="inputfile"/><br />
+        <input type="submit" name = "file" class="submitFile" value="UPLOAD IMAGE" />
+      </form>
+
+      <!-- IMAGE UPLOAD JQUERY -->
+      <script>
+      $(function() {
+        $(".btn_toggle").on("click", function() {
+          $(".upload").slideToggle("slow");
+
+        })
+      })
+      </script>
+
+
+
+<!-- IMAGE MANSONRY -->
+      <div class="masonry">
+
+        <div class="item1">
+        <% @pets.each do |pet| %>
+          <button class="show" onclick="location.href='/pets/<%= pet.id %>'">
+            <%= image_tag (pet.image) %>
+          </button>
+          <div class="img-caption1 bottom-top1">
+            <% if current_user.is_Like?(pet) %>
+              <%= link_to 'Dislike', pet_like_path(pet), method: "post" %>
+              <% else %>
+              <%= link_to 'Like', pet_like_path(pet), method: "post" %>
+            <% end %>
+
+            <% if current_user.is_Report?(pet) %>
+              <%= link_to 'Cancel', pet_report_path(pet), method: "post" %>
+              <% else %>
+              <%= link_to 'Report', pet_report_path(pet), method: "post" %>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+        
+      </div>
+
+<!-- JS -->
+      <script type="text/javascript" src="js/script.js"></script>
+      <script type="text/jacascript" src="js/upload.js"></script>
+
+
+    </div>
+  </body>
+</html>
