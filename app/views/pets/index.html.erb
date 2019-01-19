@@ -36,25 +36,11 @@
       </div>
 
 
-
-<!-- IMAGE UPLOAD -->
-      <form action="/" class="upload" id="upload">
+      <%= form_tag({controller:"pets", action:"create"}, method: "post", class: "upload", id: "upload") do %>
         <div class="file-preview"></div>
-        <input type="file" name="file" class="inputfile"/><br />
-        <input type="submit" name = "file" class="submitFile" value="UPLOAD IMAGE" />
-      </form>
-
-      <!-- IMAGE UPLOAD JQUERY -->
-<!--       <script>
-      $(function() {
-        $(".btn_toggle").on("click", function() {
-          $(".upload").slideToggle("slow");
-
-        })
-      })
-      </script> -->
-
-
+        <input type="file" name="pet[file]" class="inputfile"/><br />    
+        <input type="submit" name="submit" class="submitFile" value="UPLOAD IMAGE" />
+      <% end %>
 
 <!-- IMAGE MANSONRY -->
       <div class="masonry">
