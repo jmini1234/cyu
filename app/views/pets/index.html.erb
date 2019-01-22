@@ -54,6 +54,7 @@
               <% else %>
               <%= link_to 'Like', pet_like_path(pet), method: "post" %>
             <% end %>
+            <%= pet.likes.count %>
 
             <% if current_user.is_Report?(pet) %>
               <%= link_to 'Cancel', pet_report_path(pet), method: "post" %>
