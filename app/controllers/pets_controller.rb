@@ -5,7 +5,7 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.order("created_at DESC").page(params[:page]).per(5)
+    @pets = Pet.order("created_at DESC").page(params[:page]).per(1)
     @pet = Pet.new
   end
 
