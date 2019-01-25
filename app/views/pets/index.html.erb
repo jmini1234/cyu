@@ -35,6 +35,12 @@
               <a href="/signin" id="login">login</a>
             <% end %>
           </li>
+          <li class="flex-item">
+             <% if current_user %>
+          <%=current_user.name =%>님 안녕하세요 ! 
+          </li>
+            <% end %>
+
         </ul>
         <hr />
       </div>
