@@ -50,17 +50,20 @@
             <%= image_tag (pet.image) %>
           <div class="img-caption1 bottom-top1">
             <% if current_user.is_Like?(pet) %>
-              <%= link_to 'Dislike', pet_like_path(pet), method: "post" %>
+              <%= link_to image_tag("heart_full.png", class:"heart-img-link"), pet_like_path(pet), method: "post" %>
               <% else %>
-              <%= link_to 'Like', pet_like_path(pet), method: "post" %>
+              <%= link_to image_tag("heart_empty.png", class:"heart-img-link"), pet_like_path(pet), method: "post" %>
             <% end %>
-            <%= pet.likes.count %>
+
 
             <% if current_user.is_Report?(pet) %>
               <%= link_to 'Cancel', pet_report_path(pet), method: "post" %>
               <% else %>
               <%= link_to 'Report', pet_report_path(pet), method: "post" %>
             <% end %>
+            <br>
+                        <%= pet.likes.count %>명이 좋아합니다.
+                        <br>
             <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </div>
