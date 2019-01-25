@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate
+  before_action :authenticate, only: [:new, :edit, :create, :update, :destroy, :like_toggle, :report_toggle]
 
   # GET /pets
   # GET /pets.json
