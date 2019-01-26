@@ -65,17 +65,17 @@
           <div class="img-caption1 bottom-top1">
             <% if current_user %>
               <% if current_user.is_Like?(pet) %>
-                <%= link_to t(:heart_html), pet_like_path(pet), method: "post", style: "text-decoration:none" %>
+                <%= link_to t(:heart_html), pet_like_path(pet), method: "post", class: "symbol-size" %>
               <% else %>
-                <%= link_to t(:heartempty_html), pet_like_path(pet), method: "post", style: "text-decoration:none" %>
+                <%= link_to t(:heartempty_html), pet_like_path(pet), method: "post", class: "symbol-size" %>
               <% end %>
               <% if current_user.is_Report?(pet) %>
-                <%= link_to 'Cancel', pet_report_path(pet), method: "post", style: "text-decoration:none" %>
+                <%= link_to 'Cancel', pet_report_path(pet), method: "post", class: "symbol-size" %>
                 <% else %>
-                <%= link_to 'Report', pet_report_path(pet), method: "post", style: "text-decoration:none" %>
+                <%= link_to 'Report', pet_report_path(pet), method: "post", class: "symbol-size" %>
               <% end %>
               <% if current_user.id == pet.user_id %>
-                <%= link_to t(:destroy_html), pet, method: :delete, data: {confirms: 'Are you sure?'}, style: "text-decoration:none" %>
+                <%= link_to t(:destroy_html), pet, method: :delete, data: {confirms: 'Are you sure?'}, class: "symbol-size" %>
               <% end %>
             <% end %>
           <br>
