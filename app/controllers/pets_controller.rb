@@ -5,7 +5,8 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.order("created_at DESC").page(params[:page]).per(1)
+    @pets = Pet.all
+    #@pets = Pet.order("created_at DESC").page(params[:page]).per(10)
     @pet = Pet.new
   end
 
@@ -81,6 +82,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:image)
+      params.require(:pet).permit(:user_id, :image)
     end
 end

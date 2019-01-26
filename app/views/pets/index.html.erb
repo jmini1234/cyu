@@ -48,10 +48,15 @@
 
     <%= form_for(@pet) do |f| %>
             <div class="upload">
-            <%= f.file_field :image, :class => "image" %>
-            <input type="submit" name="submit" class="submitFile" value="UPLOAD IMAGE">
+            <% if current_user %>
+              <%= f.file_field :image, :class => "image" %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <input type="submit" name="submit" class="submitFile" value="UPLOAD IMAGE">
+            <% else %>
+            you should login first
+            <% end %>
             </div>
-<% end %>
+    <% end %>
 
 <!-- IMAGE MANSONRY -->
       <div class="masonry">
@@ -60,32 +65,27 @@
             <%= image_tag (pet.image) %>
           <div class="img-caption1 bottom-top1">
             <% if current_user %>
-            <% if current_user.is_Like?(pet) %>
-              <%= link_to image_tag("heart_full.png", class:"heart-img-link"), pet_like_path(pet), method: "post" %>
+              <% if current_user.is_Like?(pet) %>
+                <%= link_to image_tag("heart_full.png", class:"heart-img-link"), pet_like_path(pet), method: "post" %>
               <% else %>
-              <%= link_to image_tag("heart_empty.png", class:"heart-img-link"), pet_like_path(pet), method: "post" %>
+                <%= link_to image_tag("heart_empty.png", class:"heart-img-link"), pet_like_path(pet), method: "post" %>
+              <% end %>
+              <% if current_user.is_Report?(pet) %>
+                <%= link_to 'Cancel', pet_report_path(pet), method: "post" %>
+                <% else %>
+                <%= link_to 'Report', pet_report_path(pet), method: "post" %>
+              <% end %>
+              <% if current_user.id == pet.user_id %>
+                <%= link_to 'Destroy', pet, method: :delete, data: {confirms: 'Are you sure?'} %>
+              <% end %>
             <% end %>
-      <% end %>
-
-
-            <% if current_user %>
-            <% if current_user.is_Report?(pet) %>
-              <%= link_to 'Cancel', pet_report_path(pet), method: "post" %>
-              <% else %>
-              <%= link_to 'Report', pet_report_path(pet), method: "post" %>
-            <% end %>
-                  <% end %>
-
-            <br>
-                        <%= pet.likes.count %>명이 좋아합니다.
-                        <br>
-            <%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br>
+            <%= pet.likes.count %>명이 좋아합니다.
+          <br>
           </div>
         </div>
       <% end %>
       </div>
-<%= paginate @pets %>
-<!-- JS -->
 
 
     </div>

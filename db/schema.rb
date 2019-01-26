@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20190108143816) do
   end
 
   create_table "pets", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.text     "description"
     t.string   "image"
