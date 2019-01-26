@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+en:
+  heart_html: "&#9829;"
+  heartempty_html: "&#9825;"
+  destroy_html: "&#9938;"
