@@ -70,15 +70,9 @@
                 <%= link_to t(:heartempty_html), pet_like_path(pet), method: "post", class: "symbol-size" %>
               <% end %>
               <% if current_user.is_Report?(pet) %>
-<<<<<<< HEAD
-                <%= link_to 'Cancel', pet_report_path(pet), method: "post", class: "symbol-size" %>
+                <%= link_to t(:flag_html), pet_report_path(pet), method: "post", class: "symbol-size" %>
                 <% else %>
-                <%= link_to 'Report', pet_report_path(pet), method: "post", class: "symbol-size" %>
-=======
-                <%= link_to t(:flag_html), pet_report_path(pet), method: "post", style: "text-decoration:none" %>
-                <% else %>
-                <%= link_to t(:flagempty_html), pet_report_path(pet), method: "post", style: "text-decoration:none" %>
->>>>>>> 14f5e93cb04c9d28139ba78e7be3686ab164b3ee
+                <%= link_to t(:flagempty_html), pet_report_path(pet), method: "post", class: "symbol-size" %>
               <% end %>
               <% if current_user.id == pet.user_id %>
                 <%= link_to t(:destroy_html), pet, method: :delete, data: {confirms: 'Are you sure?'}, class: "symbol-size" %>
