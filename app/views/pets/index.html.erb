@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
   <link href="https://fonts.googleapis.com/css?family=Happy+Monkey|Major+Mono+Display" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="/assets/upload.css" />
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script type="text/javascript" src="/assets/script.js"></script>
@@ -71,9 +71,9 @@
                 <%= link_to t(:heartempty_html), pet_like_path(pet), method: "post", style: "text-decoration:none" %>
               <% end %>
               <% if current_user.is_Report?(pet) %>
-                <%= link_to 'Cancel', pet_report_path(pet), method: "post", style: "text-decoration:none" %>
+                <%= link_to t(:flag_html), pet_report_path(pet), method: "post", style: "text-decoration:none" %>
                 <% else %>
-                <%= link_to 'Report', pet_report_path(pet), method: "post", style: "text-decoration:none" %>
+                <%= link_to t(:flagempty_html), pet_report_path(pet), method: "post", style: "text-decoration:none" %>
               <% end %>
               <% if current_user.id == pet.user_id %>
                 <%= link_to t(:destroy_html), pet, method: :delete, data: {confirms: 'Are you sure?'}, style: "text-decoration:none" %>
