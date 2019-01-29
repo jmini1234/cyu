@@ -34,8 +34,8 @@
               <a href="/signin" id="login">login</a>
             <% end %>
           </li>
-          <li class="flex-item">
              <% if current_user %>
+          <li class="flex-item">
           <%=current_user.name =%>님 안녕하세요 ! 
           </li>
             <% end %>
@@ -63,6 +63,7 @@
         <div class="item1">
             <%= image_tag (pet.image) %>
           <div class="img-caption1 bottom-top1">
+            <br>
             <% if current_user %>
               <% if current_user.is_Like?(pet) %>
                 <%= link_to t(:heart_html), pet_like_path(pet), method: "post", class: "symbol-size" %>
@@ -75,7 +76,7 @@
                 <%= link_to t(:flagempty_html), pet_report_path(pet), method: "post", class: "symbol-size" %>
               <% end %>
               <% if current_user.id == pet.user_id %>
-                <%= link_to t(:destroy_html), pet, method: :delete, data: {confirms: 'Are you sure?'}, class: "symbol-size" %>
+                <%= link_to t(:destroy_html), pet, method: :delete, data: {confirms: 'Are you sure?'}, class: "symbol-size3" %>
               <% end %>
             <% end %>
           <br>

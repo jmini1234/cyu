@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   get 'sessions/create'
 
   get 'sessions/destroy'
-
   get 'signin', to: redirect('/auth/google_oauth2'), as: 'signin'
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
